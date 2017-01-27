@@ -38,5 +38,18 @@ public class AppTest
     assertNull(App.titleCase(null));
     assertFalse(App.titleCase("THIS_INPUT").equals("THIS INPUT"));
     assertEquals(App.titleCase(""), "");
+
+    assertEquals(App.findDateStringFromEpoch("1499144400"), "July 4, 2017");
+
+    Long nowLong = System.currentTimeMillis();
+    Long secs = nowLong / 1000;
+
+    String nowString = App.findDateStringFromEpoch(secs.toString());
+
+    assertEquals(App.findDateStringFromEpoch(null), nowString);
+
+    assertEquals(App.findDateStringFromEpoch("LDJFLDJ"), nowString);
+
   }
+
 }

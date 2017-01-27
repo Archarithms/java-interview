@@ -1,5 +1,9 @@
 package com.github.archarithms;
 
+import org.joda.time.DateTime;
+import org.joda.time.format.DateTimeFormat;
+import org.joda.time.format.DateTimeFormatter;
+
 /**
  * Hello world!
  *
@@ -48,5 +52,43 @@ public class App
 
     return result.toString();
 
+  }
+
+  public static String findDateStringFromEpoch(String epoch)
+  {
+
+    DateTimeFormatter format = DateTimeFormat.forPattern("MMMMM d, yyyy");
+
+    if (null != epoch)
+    {
+
+      try
+      {
+
+        long seconds = Long.parseLong(epoch);
+
+        DateTime dt = new DateTime(seconds * 1000);
+
+        String dtString = dt.toString(format);
+
+        System.out.println(dtString);
+
+        return dt.toString(format);
+
+      } catch (NumberFormatException e)
+      {
+        System.err.println("Epoch: " + epoch + " Not a Number");
+        return now(format);
+      }
+
+    }
+
+    return now(format);
+
+  }
+
+  private static String now(DateTimeFormatter format)
+  {
+    return DateTime.now().toString(format);
   }
 }
