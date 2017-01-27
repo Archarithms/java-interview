@@ -1,4 +1,4 @@
-package com.github.archarithms.interview_project;
+package com.github.archarithms;
 
 import junit.framework.Test;
 import junit.framework.TestCase;
