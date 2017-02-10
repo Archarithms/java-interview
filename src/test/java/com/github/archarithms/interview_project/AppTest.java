@@ -1,5 +1,7 @@
 package com.github.archarithms.interview_project;
 
+import com.github.archarithms.App;
+
 import junit.framework.Test;
 import junit.framework.TestCase;
 import junit.framework.TestSuite;
@@ -31,8 +33,12 @@ public class AppTest
     /**
      * Rigourous Test :-)
      */
-    public void testApp()
-    {
-        assertTrue( true );
+    public void testConvertToTitleCase() {
+        String testStr = "Title Case";
+        assertTrue(testStr.equals(App.convertToTitleCase("TITLE_CASE")));
+    }
+    public void testConvertToCamelCase() {
+        String testStr = "this INPUT";
+        assertTrue(testStr.equals(App.convertToCamelCase("THIS_INPUT")));
     }
 }
