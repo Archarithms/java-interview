@@ -1,8 +1,12 @@
-package com.github.archarithms.interview_project;
+package com.giithub.archarithms.interview_project;
 
 import junit.framework.Test;
 import junit.framework.TestCase;
 import junit.framework.TestSuite;
+import com.github.archarithms.App;
+import java.time.format.DateTimeFormatter;
+import java.util.Date;
+import java.text.SimpleDateFormat;
 
 /**
  * Unit test for simple App.
@@ -24,7 +28,7 @@ public class DateString extends TestCase
    */
   public static Test suite()
   {
-    return new TestSuite(TitleCase.class);
+    return new TestSuite(DateString.class);
   }
 
   /*
@@ -34,19 +38,24 @@ public class DateString extends TestCase
   /**
    * Test the testConvertUnixToDateString method
    */
-  // public void testConvertUnixToDateString()
-  // {
-  // String testStr = "July 4, 2017";
-  // assertTrue(testStr.equals(App.convertUnixToDateString(1499144400L)));
-  // }
+  public void testConvertUnixToDateString()
+   {
+       String testStr = "July 4, 2017";
+       System.out.println(App.convertUnixToDateString(1499144400L));
+       assertTrue(testStr.equals(App.convertUnixToDateString(1499144400L)));
+   }
 
   /**
    * Test the testConvertUnixToDateString method
    */
-  // public void testNullCase()
-  // {
-  // DateTime dt = new DateTime();
-  // DateTimeFormatter fmt = DateTimeFormat.forPattern("MMMM d, yyyy");
-  // assertTrue(dt.toString(fmt).equals(App.convertUnixToDateString(null)));
-  // }
+   public void testNullCase()
+   {
+       try{
+           App.convertUnixToDateString(null);
+           fail("Should have thrown exception!");
+       }catch(Exception e){
+//           System.out.println(e);
+           assertTrue(e instanceof IllegalArgumentException);
+       }
+   }
 }
