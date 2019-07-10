@@ -17,28 +17,34 @@ public class TitleCaseTests
      */
 
     /**
-     * Test the testConvertToTitleCase method
-     */
+   * Test the testConvertToTitleCase method
+   * 
+   * @throws Exception
+   */
     @Test
-    public void testConvertToTitleCase() {
+  public void testConvertToTitleCase() throws Exception {
         String testStr = "Title Case";
         assertTrue(testStr.equals(App.convertToTitleCase("TITLE_CASE")));
     }
 
     /**
-     * Test the testNumbers method
-     */
+   * Test the testNumbers method
+   * 
+   * @throws Exception
+   */
     @Test
-    public void testNumbers() {
+  public void testNumbers() throws Exception {
         String testStr = "Number 3";
         assertTrue(testStr.equals(App.convertToTitleCase("NUMBER_3")));
     }
 
     /**
-     * Test the testOtherChars method
-     */
+   * Test the testOtherChars method
+   * 
+   * @throws Exception
+   */
     @Test
-    public void testOtherChars() {
+  public void testOtherChars() throws Exception {
         String testStr = "Truth Track";
         assertTrue(testStr.equals(App.convertToTitleCase("TRUTH-TRACK")));
     }

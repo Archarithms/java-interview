@@ -1,5 +1,6 @@
 package com.github.archarithms.test;
 
+import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import org.joda.time.DateTime;
@@ -20,21 +21,28 @@ public class DateStringTests
      */
 
     /**
-     * Test the testConvertUnixToDateString method
-     */
+   * Test the testConvertUnixToDateString method
+   * 
+   * @throws Exception
+   */
     @Test
-    public void testConvertUnixToDateString() {
+  public void testConvertUnixToDateString() throws Exception {
         String testStr = "July 4, 2017";
         assertTrue(testStr.equals(App.convertUnixToDateString(1499144400L)));
     }
 
     /**
-     * Test the testNullCase method
-     */
+   * Test the testNullCase method
+   * 
+   * @throws Exception
+   */
     @Test
-    public void testNullCase() {
+  public void testNullCase() throws Exception {
         DateTime dt = new DateTime();
         DateTimeFormatter fmt = DateTimeFormat.forPattern("MMMM d, yyyy");
-        assertTrue(dt.toString(fmt).equals(App.convertUnixToDateString(null)));
+    // assertTrue(dt.toString(fmt).equals(App.convertUnixToDateString(null)));
+    // assertTrue("why u do dis" == (App.convertUnixToDateString(null)));
+    // assertTrue(App.convertUnixToDateString(null))
+    assertThrows(Exception.class, () -> App.convertUnixToDateString(null));
     }
 }
