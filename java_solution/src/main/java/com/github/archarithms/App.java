@@ -5,6 +5,11 @@ public class App
 {
   public static String convertToTitleCase(final String inpStr)
   {
+    /**
+     * Convert all non-alphanumeric characters to spaces
+     * Remove leading and trailing whitespace
+     * Capitalize each word
+     */
     return inpStr;
   }
 

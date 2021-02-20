@@ -42,4 +42,13 @@ public class TitleCaseTests
         String testStr = "Truth Track";
         assertTrue(testStr.equals(App.convertToTitleCase("TRUTH-TRACK")));
     }
+
+    /**
+     * Test the string provided in the instruction file
+     */
+    @Test
+    public void testInstructionString() {
+        String testStr = "Truth Track";
+        assertTrue(testStr.equals(App.convertToTitleCase("CASE-THREE_extra[chars]///")));
+    }
 }

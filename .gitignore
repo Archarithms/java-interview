@@ -1,9 +1,1 @@
-.classpath
-.project
-.settings/
-target/
-nbproject/*
-.settings
-runtime/*
-*~
 .DS_Store
