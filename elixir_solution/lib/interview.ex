@@ -1,18 +1,14 @@
 defmodule Interview do
-  @moduledoc """
-  Documentation for `Interview`.
-  """
+  def convertToTitleCase(string) when is_binary(string) do
+    string
+    |> String.split(~r/[^[:alnum:]]/u, trim: true)
+    |> Enum.map(&String.capitalize/1)
+    |> Enum.join(" ")
+  end
 
-  @doc """
-  Hello world.
-
-  ## Examples
-
-      iex> Interview.hello()
-      :world
-
-  """
-  def hello do
-    :world
+  def convertUnixToDateString(seconds) when is_integer(seconds) do
+    seconds
+    |> DateTime.from_unix!()
+    |> Calendar.strftime("%B %-d, %Y")
   end
 end
