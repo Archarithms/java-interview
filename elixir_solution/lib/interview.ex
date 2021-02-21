@@ -6,7 +6,8 @@ defmodule Interview do
     |> Enum.join(" ")
   end
 
-  def convertUnixToDateString(seconds) when is_integer(seconds) do
+  def convertUnixToDateString(seconds \\ DateTime.to_unix(DateTime.now!("Etc/UTC")))
+      when is_integer(seconds) do
     seconds
     |> DateTime.from_unix!()
     |> Calendar.strftime("%B %-d, %Y")

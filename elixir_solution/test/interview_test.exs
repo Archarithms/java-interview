@@ -32,5 +32,10 @@ defmodule InterviewTest do
     test "throws exception when passed null" do
       assert_raise FunctionClauseError, fn -> Interview.convertUnixToDateString(nil) end
     end
+
+    test "defaults to today" do
+      today = Calendar.strftime(DateTime.now!("Etc/UTC"), "%B %-d, %Y")
+      assert Interview.convertUnixToDateString() == today
+    end
   end
 end
