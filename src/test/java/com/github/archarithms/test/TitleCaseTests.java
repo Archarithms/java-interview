@@ -1,11 +1,10 @@
 package com.github.archarithms.test;
 
-import static org.junit.jupiter.api.Assertions.assertThrows;
-import static org.junit.jupiter.api.Assertions.assertTrue;
-
 import org.junit.jupiter.api.Test;
 
 import com.github.archarithms.App;
+
+import static org.junit.jupiter.api.Assertions.*;
 
 /**
  * TitleCaseTests unit tests for simple App.
@@ -15,39 +14,41 @@ public class TitleCaseTests {
     @Test
     public void testConvertToTitleCase() {
         String testStr = "Title Case";
-        assertTrue(testStr.equals(App.convertToTitleCase("TITLE_CASE")));
+        assertEquals(testStr, App.convertToTitleCase("TITLE_CASE"));
     }
 
     @Test
     public void testNumbers() {
         String testStr = "Number 3";
-        assertTrue(testStr.equals(App.convertToTitleCase("NUMBER_3")));
+        assertEquals(testStr, App.convertToTitleCase("NUMBER_3"));
+    }
+
+    @Test
+    public void testMess() {
+        String testStr = "Case Three Extra Chars";
+        assertEquals(testStr, App.convertToTitleCase("CASE-THREE_extra[chars]///"));
     }
 
     @Test
     public void testOtherChars() {
         String testStr = "Truth Track";
-        assertTrue(testStr.equals(App.convertToTitleCase("TRUTH-TRACK")));
+        assertEquals(testStr, App.convertToTitleCase("TRUTH-TRACK"));
     }
 
     @Test
     public void testForNoAdditionalSpaces() {
         String testStr = "Test";
-        assertTrue(testStr.equals(App.convertToTitleCase("test  ")));
+        assertEquals(testStr, App.convertToTitleCase("test  "));
     }
 
-    /**
-     * What is the expected result if the input is something like "111"?  Since we're returning a String rather than an Optional<String>,
-     * my assumption is that we'll return an empty String.
-     */
     @Test
-    public void testNumericalString() {
-        String testStr = "";
-        assertTrue(testStr.equals(App.convertToTitleCase("111")));
+    public void testAllNumbers() {
+        String testStr = "33";
+        assertEquals(testStr, App.convertToTitleCase("33"));
     }
 
     @Test
     public void testNullString() {
-        assertThrows(Exception.class, () -> App.convertToTitleCase(null));
+        assertThrows(IllegalArgumentException.class, () -> App.convertToTitleCase(null));
     }
 }
