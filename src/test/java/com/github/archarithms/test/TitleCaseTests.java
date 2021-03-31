@@ -1,45 +1,72 @@
 package com.github.archarithms.test;
 
-import static org.junit.jupiter.api.Assertions.assertTrue;
-
+import com.github.archarithms.App;
 import org.junit.jupiter.api.Test;
 
-import com.github.archarithms.App;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 /**
  * TitleCaseTests unit tests for simple App.
  */
-public class TitleCaseTests
-{
+public class TitleCaseTests {
 
-    /*
-     * UNCOMMENT THE UNIT TESTS TO RUN THEM. FEEL FREE TO ADD MORE!
-     */
-
-    /**
-     * Test the testConvertToTitleCase method
-     */
     @Test
     public void testConvertToTitleCase() {
         String testStr = "Title Case";
-        assertTrue(testStr.equals(App.convertToTitleCase("TITLE_CASE")));
+        assertEquals(testStr, App.convertToTitleCase("TITLE_CASE"));
     }
 
-    /**
-     * Test the testNumbers method
-     */
     @Test
     public void testNumbers() {
         String testStr = "Number 3";
-        assertTrue(testStr.equals(App.convertToTitleCase("NUMBER_3")));
+        assertEquals(testStr, App.convertToTitleCase("NUMBER_3"));
     }
 
-    /**
-     * Test the testOtherChars method
-     */
+    @Test
+    public void testMess() {
+        String testStr = "Case Three Extra Chars";
+        assertEquals(testStr, App.convertToTitleCase("CASE-THREE_extra[chars]///"));
+    }
+
     @Test
     public void testOtherChars() {
         String testStr = "Truth Track";
-        assertTrue(testStr.equals(App.convertToTitleCase("TRUTH-TRACK")));
+        assertEquals(testStr, App.convertToTitleCase("TRUTH-TRACK"));
+    }
+
+    @Test
+    public void testForNoAdditionalSpaces() {
+        String testStr = "Test";
+        assertEquals(testStr, App.convertToTitleCase("test  "));
+    }
+
+    @Test
+    public void testAllNumbers() {
+        String testStr = "33";
+        assertEquals(testStr, App.convertToTitleCase("33"));
+    }
+
+    /**
+     * Ambiguous description: the function should remove all non alphanumeric characters and replace them with spaces.
+     *                        But no spaces at the end of the result.
+     *
+     * Assumption: apply the first rule (which does nothing), then trim whitespace (which reduces it to an empty String).
+     */
+    @Test
+    public void testStringOfSpaces() {
+        String testStr = "";
+        assertEquals(testStr, App.convertToTitleCase("    "));
+    }
+
+    @Test
+    public void testLeadingSpaces() {
+        String testStr = "    Test";
+        assertEquals(testStr, App.convertToTitleCase("    test"));
+    }
+
+    @Test
+    public void testNullString() {
+        assertThrows(IllegalArgumentException.class, () -> App.convertToTitleCase(null));
     }
 }
