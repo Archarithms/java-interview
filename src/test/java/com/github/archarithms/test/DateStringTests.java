@@ -2,6 +2,9 @@ package com.github.archarithms.test;
 
 import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assertions.fail;
+
+import java.io.IOException;
 
 import org.junit.jupiter.api.Test;
 
@@ -22,8 +25,13 @@ public class DateStringTests
      */
     @Test
     public void testConvertUnixToDateString() {
-        String testStr = "July 4, 2017";
-        assertTrue(testStr.equals(App.convertUnixToDateString(1499144400L)));
+    	try {
+    		String testStr = "July 4, 2017";
+    		String result = App.convertUnixToDateString(1499144400L);
+        	assertTrue(testStr.equals(result));
+        } catch(IOException e) {
+        	fail("Exception thrown");
+        }
     }
 
     /**
