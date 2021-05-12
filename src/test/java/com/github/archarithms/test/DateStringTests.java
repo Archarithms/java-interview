@@ -4,7 +4,6 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import org.junit.jupiter.api.Test;
-
 import com.github.archarithms.App;
 
 /**
@@ -33,4 +32,26 @@ public class DateStringTests
     public void testNullCase() {
         assertThrows(Exception.class, () -> App.convertUnixToDateString(null));
     }
+
+//    @Test
+//    public void testestConvertUnixToDateStringWrongType() {
+//        int wrongType = 50000;
+//        assertThrows(Exception.class, () -> App.convertUnixToDateString(wrongType));
+
+//NOTE: cant test for wrong type as the function being tested does not accept generic types
+// will produce a compile time error due to strong tlyping rules
+//}
+
+    /**
+     * Test .
+     * NOTE: The testStr variable needs set to today's date or the test will fail
+     * Set testStr to todays date and then uncomment to run test.
+     */
+    /* @Test
+    public void testToday() {
+        String testStr = "May 12, 2021";
+        assertTrue(testStr.equals(App.convertUnixToDateString()));
+    } */
+
+
 }
