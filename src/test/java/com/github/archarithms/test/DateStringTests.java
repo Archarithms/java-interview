@@ -43,7 +43,7 @@ public class DateStringTests
 //}
 
     /**
-     * Test .
+     * Test overloaded convertUnixToDateString no params
      * NOTE: The testStr variable needs set to today's date or the test will fail
      * Set testStr to todays date and then uncomment to run test.
      */
