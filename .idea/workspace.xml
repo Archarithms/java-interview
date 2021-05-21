@@ -4,11 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f281558e-907b-4a81-81ba-bd34d99d0db0" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/github/archarithms/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/github/archarithms/App.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/github/archarithms/test/DateStringTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/github/archarithms/test/DateStringTests.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/github/archarithms/test/TitleCaseTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/github/archarithms/test/TitleCaseTests.java" afterDir="false" />
-    </list>
+    <list default="true" id="f281558e-907b-4a81-81ba-bd34d99d0db0" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
