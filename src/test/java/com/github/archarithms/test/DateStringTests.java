@@ -21,7 +21,7 @@ public class DateStringTests
      * Test the testConvertUnixToDateString method
      */
     @Test
-    public void testConvertUnixToDateString() {
+    public void testConvertUnixToDateString() throws Exception {
         String testStr = "July 4, 2017";
         assertTrue(testStr.equals(App.convertUnixToDateString(1499144400L)));
     }
@@ -32,5 +32,14 @@ public class DateStringTests
     @Test
     public void testNullCase() {
         assertThrows(Exception.class, () -> App.convertUnixToDateString(null));
+    }
+
+    /**
+     * Test the testMyBirthday method
+     */
+    @Test
+    public void testMyBirthday() throws Exception {
+        String testStr = "August 14, 1998";
+        assertTrue(testStr.equals(App.convertUnixToDateString(903114000L)));
     }
 }
