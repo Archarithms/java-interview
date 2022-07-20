@@ -22,28 +22,35 @@ public class App
     result = StringUtils.stripEnd(result, " ");
 
     // Set Correct Case
-    //result = StringUtils.lowerCase(result);
     result = WordUtils.capitalizeFully(result);
     
     return result;
   }
+  
+  public static String convertUnixToDateString()
+  {
+    // Get the current date.
+    LocalDate dt = LocalDate.now();
+    
+    // Specify the desired date format.
+    DateTimeFormatter fmt = DateTimeFormatter.ofPattern("MMMM d, yyyy").withZone(ZoneId.systemDefault());
+    
+    // Return the current date.
+    return dt.format(fmt).toString();
+  }
 
   public static String convertUnixToDateString(final Long inpUnixSeconds) throws NullPointerException
   {
-
-    LocalDate dt = LocalDate.now();
+    // Specify the desired date format.
     DateTimeFormatter fmt = DateTimeFormatter.ofPattern("MMMM d, yyyy").withZone(ZoneId.systemDefault());
-    String result = null;
     
-    // Return the current date if the input is null.
+    // Throw exception if the input is null.
      if (inpUnixSeconds == null){
-      result = dt.format(fmt).toString();
       throw new NullPointerException();
     } 
 
     // Otherwise convert the unix epoch seconds to a datetime.
     Instant inst = Instant.ofEpochSecond(inpUnixSeconds);
-    result = fmt.format(inst);
-    return result;
+    return fmt.format(inst);
   }
 }

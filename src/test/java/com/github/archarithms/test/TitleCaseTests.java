@@ -42,4 +42,13 @@ public class TitleCaseTests
         String testStr = "Truth Track";
         assertTrue(testStr.equals(App.convertToTitleCase("TRUTH-TRACK")));
     }
+
+        /**
+     * Test the testEndSpaces method
+     */
+    @Test
+    public void testEndSpaces() {
+        String testStr = "No End Spaces";
+        assertTrue(testStr.equals(App.convertToTitleCase("NO END SPACES   ")));
+    }
 }
